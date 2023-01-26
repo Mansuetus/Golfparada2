@@ -3,10 +3,9 @@
 <head>
 <title>GolfParada.cz - Golf je Turnaj</title>
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-<script type="text/javascript" src="js/jquery-3.4.1.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
   </head>
 <body>
-  
  <script type="text/javascript">
       google.load("visualization", "1", {packages:["corechart"]});
 function ajax_gp(dotaz) {
@@ -16,6 +15,8 @@ function ajax_gp(dotaz) {
           async: false
           }).responseText
       }
+lat gp_data;
+  
 function drawChart() {
   
         var data = new google.visualization.DataTable();
