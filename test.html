@@ -1,1 +1,35 @@
-test html
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title>GolfParada.cz - Golf je Turnaj</title>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript" src="js/jquery-3.4.1.js"></script>
+  </head>
+<body>
+  
+ <script type="text/javascript">
+      google.load("visualization", "1", {packages:["corechart"]});
+function ajax_gp(dotaz) {
+      	return $.ajax({
+          url: dotaz,
+          dataType:"json",
+          async: false
+          }).responseText
+      }
+function drawChart() {
+  
+        var data = new google.visualization.DataTable();
+        var options = {
+          title:'Rozdělení HCP',
+          is3D:true,
+          titleTextStyle:{color: 'black', fontName: 'Arial', fontSize: 14},
+          legend:{position: 'right', textStyle: {color: 'black', fontSize: 12}},
+          chartArea:{left:0,top:18,width:"100%",height:"100%"}
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+  </script>
+</body>
+</html>
