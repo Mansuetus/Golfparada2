@@ -15,8 +15,8 @@ function ajax_gp(dotaz) {
           async: false
           }).responseText
       }
-lat gp_data;
-  
+var gp_data = ajax_gp("y_data.json");
+  document.getElementById('neco').innerHTML(gp_data);
 function drawChart() {
   
         var data = new google.visualization.DataTable();
@@ -32,5 +32,8 @@ function drawChart() {
         chart.draw(data, options);
       }
   </script>
+  
+  <div id="neco">
+  </div>
 </body>
 </html>
