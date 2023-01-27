@@ -1,0 +1,926 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<title>GolfParada.cz - Golf je Turnaj</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="description" lang="cs" content="Žebříčky a statistiky amatérského golfu v ČR">
+<meta name="keywords" lang="cs" content="golf,golfové,golfový,statistika,statistiky,HCP,STB,amaterský,turnaj,hráči,golfisti,sezóna">
+<link rel="stylesheet" type="text/css" href="../css/s2013.css" />
+<LINK REL="SHORTCUT ICON" HREF="/src/favicon.ico" />
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-31384014-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+</head>
+<body>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.load("visualization", "1", {packages:["corechart"]});
+
+      function drawChart() {
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'Task');
+        data.addColumn('number', 'Hours per Day');
+        data.addRows([
+['do 4.4',1525],
+['4.5 - 11.4',3611],
+['11.5 - 18.4',7533],
+['18.5 - 26.4',9767],
+['26.5 - 36.0',8129],
+['37 - 54',7577],
+        ]);
+
+        var options = {
+          title:'Rozdělení HCP',
+          is3D:true,
+          titleTextStyle:{color: 'black', fontName: 'Arial', fontSize: 14},
+          legend:{position: 'right', textStyle: {color: 'black', fontSize: 12}},
+          chartArea:{left:0,top:18,width:"100%",height:"100%"}
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+       function nakresliPocetOdehranychJamek() {
+        var jsonData ={
+"cols": [
+{"id":"","label":"Mesic","pattern":"","type":"string"},
+{"id":"","label":"PocetJamek","pattern":"","type":"number"}]
+,
+"rows": [
+{"c":[{"v":"1","f":null},{"v":3384,"f":null}]},
+{"c":[{"v":"2","f":null},{"v":6678,"f":null}]},
+{"c":[{"v":"3","f":null},{"v":19239,"f":null}]},
+{"c":[{"v":"4","f":null},{"v":192736,"f":null}]},
+{"c":[{"v":"5","f":null},{"v":522594,"f":null}]},
+{"c":[{"v":"6","f":null},{"v":541680,"f":null}]},
+{"c":[{"v":"7","f":null},{"v":476288,"f":null}]},
+{"c":[{"v":"8","f":null},{"v":487562,"f":null}]},
+{"c":[{"v":"9","f":null},{"v":555283,"f":null}]},
+{"c":[{"v":"10","f":null},{"v":285747,"f":null}]},
+{"c":[{"v":"11","f":null},{"v":44439,"f":null}]},
+{"c":[{"v":"12","f":null},{"v":1122,"f":null}]}
+]
+};
+          var options = {
+          width: 600, height: 152,
+          chartArea:{left:60,top:20,width:"80%",height:"70%"},
+          title: 'Počet odehraných jamek',
+          titleTextStyle:{color: 'black', fontName: 'Arial', fontSize: 14},
+          legend: {position: 'none'},
+          vAxis: {minValue:1,maxValue:4}
+        };
+        var data = new google.visualization.DataTable(jsonData);
+        var chart = new google.visualization.ColumnChart(document.getElementById('PocetOdehranychJamek'));
+        chart.draw(data,options);
+      }
+    function nakresliGrafy() {
+      drawChart();
+      nakresliPocetOdehranychJamek();
+      }
+      google.setOnLoadCallback(nakresliGrafy);
+
+
+    </script>
+<div id="main">
+<div id="reklama">
+<div id="reklama2">
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-3616470224799939";
+/* Horni golfparada */
+google_ad_slot = "6014595942";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<script type="text/javascript"
+src="https://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div>
+</div>
+<div class="hlavnitelo" >
+<div id="logo">
+<div id="logopanel"><h1>Žebříčky a statistiky amatérského golfu</h1></div>
+</div>
+<div id="nabidkapanel">
+<table cellpadding=0 cellspacing=0 >
+<tr height=40>
+<td width=40> </td>
+<td valign=center class=nabidka1 >Sezóna</td>
+<td valign=center class=nabidka2 >Hráči</td>
+<td valign=center class=nabidka2 >Hřiště</td>
+<td valign=center class=nabidka2 >Jamky</td>
+<td valign=center class=nabidka2 ><a href="napoveda.php">?</a></td>
+</tr>
+</table>
+<div id="poleHledej">
+<form action=najdiid.php method=post>
+  <input type=text class=vstupnipole id="#pole1" name=golfista value="Příjmení (Jméno) nebo Reg.č." onclick="this.value = '';this.style.color='black';this.style.fontSize='14px'">
+  <input type="submit" value="Hledej" />
+</form>
+</div>
+</div>
+<div id="horniodsazeni"></div>
+<div id="ohraniceni" >
+<div class=telo align=center>
+<div id="toppanel" align=left>
+<table border=0 cellpadding=0 cellspacing=0>
+<tr>
+<td style="width:29px;"> </td>
+<td class=aktivnirok>2022<td><td class=neaktivnirok><a href="archiv2021.php">2021</a><td><td class=neaktivnirok><a href="archiv2020.php">2020</a><td><td class=neaktivnirok><a href="archiv2019.php">2019</a><td><td class=neaktivnirok><a href="archiv2018.php">2018</a><td><td class=neaktivnirok><a href="archiv2017.php">2017</a><td><td class=neaktivnirok><a href="archiv2016.php">2016</a><td><td class=neaktivnirok><a href="archiv2015.php">2015</a><td><td class=neaktivnirok><a href="archiv2014.php">2014</a><td><td class=neaktivnirok><a href="archiv2013.php">2013</a><td><td class=neaktivnirok><a href="archiv2012.php">2012</a><td><td class=neaktivnirok><a href="archiv2011.php">2011</a><td><td class=neaktivnirok><a href="archiv2010.php">2010</a><td><td class=neaktivnirok><a href="archiv2009.php">2009</a><td><td class=neaktivnirok><a href="archiv2008.php">2008</a><td><td class=neaktivnirok><a href="archiv2007.php">2007</a><td><td class=neaktivnirok><a href="archiv2006.php">2006</a><td><td class=neaktivnirok><a href="archiv2005.php">2005</a><td><td class=neaktivnirok><a href="archiv2004.php">2004</a><td><td class=neaktivnirok><a href="archiv2003.php">2003</a><td><td class=neaktivnirok><a href="archiv2002.php">2002</a><td><!--
+<td class=pasivnirok>2012<td>
+<td class=aktivnirok>2011<td>
+-->
+</tr>
+</table>
+<!-- <div id="toppanelbocnice"></div>    -->
+</div>
+
+<!-- NOVY PRVEK  -->
+<div>
+<table style="margin-top: 20px;" width=900 border=1>
+<tr>
+<td class=topbila>26629</td>
+<td class=toptext>Aktivních golfistů </td>
+<td class=topzluta>5177</td>
+<td class=toptext>Turnajů celkem</td>
+<td class=topmodra>4183</td><td class=toptext>na 18 jamek</td>
+<td class=topcervena>994</td>
+<td class=toptext>na 9 jamek</td>
+</tr>
+</table>
+</div>
+<!--
+<div class=linka>
+<table cellpadding=0 cellspacing=0 width=900>
+<tr>
+<td  width=50 align=left valign=center style="color:white;padding-left:15px;">2022</td>
+<td  width=130 align=right valign=center>Turnaje <span style="font-weight:normal;">(18/9)</span>:</td>
+<td align=left valign=center style="color:#FFE000;">5177<span style="font-weight:normal;"> (</span><span style="color:#07437f;font-weight:normal;">4183</span>/
+<span style="color:#d4001e;font-weight:normal;">994</span><span style="font-weight:normal;">)</span></td>
+<td width=150 align=right valign=center>Průměr Stableford:</td>
+<td align=left valign=center class=hodnoty>31.9</td>
+<td width=150 align=right valign=center>Průměr Brutto:</td>
+<td align=left valign=center class=hodnoty>+23.6</td>
+</tr>
+</table>
+</div>
+-->
+<div id="obsah">
+<div id="PocetOdehranychJamek" style="width:600px; height:152px;float:left;"></div>
+
+<!--
+<div class=modrypanel style="width:280px;float:left;">
+<div class=hlavickapanelu>Výkon týdne</div>
+<div class=telopanelu style="height:130px;">Připravuje se ...</div>
+</div>
+-->
+<div id="chart_div" style="width: 300px; height: 152px;float:right;"></div>
+<div class=mezera></div>
+
+
+
+
+
+<div class=zelenypanel style="float:left;width:280px;">
+<h2>Golfista Roku</h2>
+<p>Celkem dosažené turnajové Stableford body za rok, uhrané na jakémkoli hřišti v rámci oficiálního turnaje.</p>
+<div class=hlavickapanelu>Golfista Roku</div>
+<div class=telopanelu>
+<table border=0 width=276 cellpadding=2 cellspacing=2>
+	<tr>
+		<td class=prvnib align=right width=42><div class=prvnif>1.</div></td>
+		<td align=left ><div class=prvnif><a href='golfers.php?IDGolfer=25242422'>KŘIKAVOVÁ Lenka</a></div></td>
+		<td align=right ><div class=prvnif>3588</div></td>
+		<td class=prvnib width=5> </td>
+	</tr>
+	<tr>
+		<td class=druhyb align=right width=42><div class=druhyf>2.</div></td>
+		<td align=left ><div class=druhyf><a href='golfers.php?IDGolfer=59082625'>BŘICHÁČEK Petr</a></div></td>
+		<td align=right ><div class=druhyf>3248</div></td>
+		<td class=druhyb width=5> </td>
+	</tr>
+	<tr>
+		<td class=tretib align=right width=42><div class=tretif>3.</div></td>
+		<td align=left ><div class=tretif><a href='golfers.php?IDGolfer=43771890'>KALHOUS Richard</a></div></td>
+		<td align=right ><div class=tretif>3137</div></td>
+		<td class=tretib width=5> </td>
+	</tr>
+	<tr>
+		<td class=ostatnib align=right width=42><div class=ostatnif>4.</div></td>
+		<td align=left ><div class=ostatnif><a href='golfers.php?IDGolfer=45209380'>VLASÁK Vít</a></div></td>
+		<td align=right ><div class=ostatnif>3057</div></td>
+		<td class=ostatnib width=5> </td>
+	</tr>
+	<tr>
+		<td class=ostatnib align=right width=42><div class=ostatnif>5.</div></td>
+		<td align=left ><div class=ostatnif><a href='golfers.php?IDGolfer=560081581'>LIPPERT Zdeněk</a></div></td>
+		<td align=right ><div class=ostatnif>3016</div></td>
+		<td class=ostatnib width=5> </td>
+	</tr>
+	<tr>
+		<td class=ostatnib align=right width=42><div class=ostatnif>6.</div></td>
+		<td align=left ><div class=ostatnif><a href='golfers.php?IDGolfer=645679867'>OLIVA Jakub</a></div></td>
+		<td align=right ><div class=ostatnif>2951</div></td>
+		<td class=ostatnib width=5> </td>
+	</tr>
+	<tr>
+		<td class=ostatnib align=right width=42><div class=ostatnif>7.</div></td>
+		<td align=left ><div class=ostatnif><a href='golfers.php?IDGolfer=30570'>GREGOV Robert</a></div></td>
+		<td align=right ><div class=ostatnif>2787</div></td>
+		<td class=ostatnib width=5> </td>
+	</tr>
+	<tr>
+		<td class=ostatnib align=right width=42><div class=ostatnif>8.</div></td>
+		<td align=left ><div class=ostatnif><a href='golfers.php?IDGolfer=515238353'>NOVÁK Radek</a></div></td>
+		<td align=right ><div class=ostatnif>2751</div></td>
+		<td class=ostatnib width=5> </td>
+	</tr>
+	<tr>
+		<td class=ostatnib align=right width=42><div class=ostatnif>9.</div></td>
+		<td align=left ><div class=ostatnif><a href='golfers.php?IDGolfer=91281489'>DROTÁR Róbert</a></div></td>
+		<td align=right ><div class=ostatnif>2739</div></td>
+		<td class=ostatnib width=5> </td>
+	</tr>
+	<tr>
+		<td class=ostatnib align=right width=42><div class=ostatnif>10.</div></td>
+		<td align=left ><div class=ostatnif><a href='golfers.php?IDGolfer=435046059'>KRUPIČKA Lukáš</a></div></td>
+		<td align=right ><div class=ostatnif>2684</div></td>
+		<td class=ostatnib width=5> </td>
+	</tr>
+</table>
+</div>
+</div>
+
+<div class=zelenypanel style="float:left;width:280px;">
+<h2>Podparovač Roku</h2>
+<p>Celkem záporných výsledků pod PAR zahraných v jednom kole na 18ti jamkovém hřišti za rok.</p>
+<div class=hlavickapanelu>Podparovač Roku</div>
+<div class=telopanelu>
+<table border=0 width=276 cellpadding=2 cellspacing=2>
+	<tr>
+		<td class=prvnib align=right width=42><div class=prvnif>1.</div></td>
+		<td align=left ><div class=prvnif><a href='golfers.php?IDGolfer=316389868'>PAVOUČEK Dominik</a></div></td>
+		<td align=right ><div class=prvnif>-68</div></td>
+		<td class=prvnib width=5> </td>
+	</tr>
+	<tr>
+		<td class=druhyb align=right width=42><div class=druhyf>2.</div></td>
+		<td align=left ><div class=druhyf><a href='golfers.php?IDGolfer=84225642'>MATUŠ Stanislav</a></div></td>
+		<td align=right ><div class=druhyf>-56</div></td>
+		<td class=druhyb width=5> </td>
+	</tr>
+	<tr>
+		<td class=tretib align=right width=42><div class=tretif>3.</div></td>
+		<td align=left ><div class=tretif><a href='golfers.php?IDGolfer=38143450'>ZACH Šimon</a></div></td>
+		<td align=right ><div class=tretif>-42</div></td>
+		<td class=tretib width=5> </td>
+	</tr>
+	<tr>
+		<td class=ostatnib align=right width=42><div class=ostatnif>4.</div></td>
+		<td align=left ><div class=ostatnif><a href='golfers.php?IDGolfer=471021113'>PLÁŠEK Štěpán</a></div></td>
+		<td align=right ><div class=ostatnif>-40</div></td>
+		<td class=ostatnib width=5> </td>
+	</tr>
+	<tr>
+		<td class=ostatnib align=right width=42><div class=ostatnif>5.</div></td>
+		<td align=left ><div class=ostatnif><a href='golfers.php?IDGolfer=51657738'>KOHOUT Radek</a></div></td>
+		<td align=right ><div class=ostatnif>-38</div></td>
+		<td class=ostatnib width=5> </td>
+	</tr>
+	<tr>
+		<td class=ostatnib align=right width=42><div class=ostatnif>6.</div></td>
+		<td align=left ><div class=ostatnif><a href='golfers.php?IDGolfer=89628440'>KOŘÍNEK Aleš</a></div></td>
+		<td align=right ><div class=ostatnif>-35</div></td>
+		<td class=ostatnib width=5> </td>
+	</tr>
+	<tr>
+		<td class=ostatnib align=right width=42><div class=ostatnif>7.</div></td>
+		<td align=left ><div class=ostatnif><a href='golfers.php?IDGolfer=456097719'>TOMI David</a></div></td>
+		<td align=right ><div class=ostatnif>-32</div></td>
+		<td class=ostatnib width=5> </td>
+	</tr>
+	<tr>
+		<td class=ostatnib align=right width=42><div class=ostatnif>8.</div></td>
+		<td align=left ><div class=ostatnif><a href='golfers.php?IDGolfer=41936698'>DANĚK Štěpán</a></div></td>
+		<td align=right ><div class=ostatnif>-30</div></td>
+		<td class=ostatnib width=5> </td>
+	</tr>
+	<tr>
+		<td class=ostatnib align=right width=42><div class=ostatnif>9.</div></td>
+		<td align=left ><div class=ostatnif><a href='golfers.php?IDGolfer=8479727'>POSPÍŠIL Michal</a></div></td>
+		<td align=right ><div class=ostatnif>-28</div></td>
+		<td class=ostatnib width=5> </td>
+	</tr>
+	<tr>
+		<td class=ostatnib align=right width=42><div class=ostatnif>10.</div></td>
+		<td align=left ><div class=ostatnif><a href='golfers.php?IDGolfer=4220768'>SEDLÁČEK Tadeáš</a></div></td>
+		<td align=right ><div class=ostatnif>-27</div></td>
+		<td class=ostatnib width=5> </td>
+	</tr>
+</table>
+</div>
+</div>
+
+
+<div class=reklama1 style="margin-top: 30px;">
+<a href='reklama.php?Link=2' style='display:inline-table;border:none;height:250px;margin:0;padding:0;position:relative;visibility:visible;width:250px;background-color:transparent'><img src='../src/banner_golfparada_250x250px.jpg' ></a>
+</div>
+<div class=mezera></div>
+
+<div class=zelenypanel style="float:left;width:280px;">
+<h2>Skokan Roku</h2>
+<p>Celkem Stableford bodů nad 36 zahraných v jednom kole na 18ti jamkovém hřišti za rok.</p>
+<div class=hlavickapanelu>Skokan Roku</div>
+<div class=telopanelu>
+<table border=0 width=276 cellpadding=2 cellspacing=2>
+	<tr>
+		<td class=prvnib align=right width=42><div class=prvnif>1.</div></td>
+		<td align=left ><div class=prvnif><a href='golfers.php?IDGolfer=648662134'>HROUZA Jan</a></div></td>
+		<td align=right ><div class=prvnif>95</div></td>
+		<td class=prvnib width=5> </td>
+	</tr>
+	<tr>
+		<td class=druhyb align=right width=42><div class=druhyf>2.</div></td>
+		<td align=left ><div class=druhyf><a href='golfers.php?IDGolfer=361280468'>KOUTNÝ Patrik</a></div></td>
+		<td align=right ><div class=druhyf>85</div></td>
+		<td class=druhyb width=5> </td>
+	</tr>
+	<tr>
+		<td class=tretib align=right width=42><div class=tretif>3.</div></td>
+		<td align=left ><div class=tretif><a href='golfers.php?IDGolfer=652941714'>KLAUDY Amélia Li</a></div></td>
+		<td align=right ><div class=tretif>69</div></td>
+		<td class=tretib width=5> </td>
+	</tr>
+	<tr>
+		<td class=ostatnib align=right width=42><div class=ostatnif>4.</div></td>
+		<td align=left ><div class=ostatnif><a href='golfers.php?IDGolfer=665478478'>HARMATOVÁ Tereza</a></div></td>
+		<td align=right ><div class=ostatnif>68</div></td>
+		<td class=ostatnib width=5> </td>
+	</tr>
+	<tr>
+		<td class=ostatnib align=right width=42><div class=ostatnif>5.</div></td>
+		<td align=left ><div class=ostatnif><a href='golfers.php?IDGolfer=634387645'>DI PUCCIO Robert</a></div></td>
+		<td align=right ><div class=ostatnif>66</div></td>
+		<td class=ostatnib width=5> </td>
+	</tr>
+	<tr>
+		<td class=ostatnib align=right width=42><div class=ostatnif>6.</div></td>
+		<td align=left ><div class=ostatnif><a href='golfers.php?IDGolfer=590830307'>VÝTISK Adam</a></div></td>
+		<td align=right ><div class=ostatnif>65</div></td>
+		<td class=ostatnib width=5> </td>
+	</tr>
+	<tr>
+		<td class=ostatnib align=right width=42><div class=ostatnif>7.</div></td>
+		<td align=left ><div class=ostatnif><a href='golfers.php?IDGolfer=572341898'>JOHN Thomas</a></div></td>
+		<td align=right ><div class=ostatnif>64</div></td>
+		<td class=ostatnib width=5> </td>
+	</tr>
+	<tr>
+		<td class=ostatnib align=right width=42><div class=ostatnif>8.</div></td>
+		<td align=left ><div class=ostatnif><a href='golfers.php?IDGolfer=443845180'>SNIEGOŇ Jan</a></div></td>
+		<td align=right ><div class=ostatnif>62</div></td>
+		<td class=ostatnib width=5> </td>
+	</tr>
+	<tr>
+		<td class=ostatnib align=right width=42><div class=ostatnif>9-10.</div></td>
+		<td align=left ><div class=ostatnif><a href='golfers.php?IDGolfer=564578339'>KŘIKAVA David</a></div></td>
+		<td align=right ><div class=ostatnif>61</div></td>
+		<td class=ostatnib width=5> </td>
+	</tr>
+	<tr>
+		<td class=ostatnib align=right width=42><div class=ostatnif>9-10.</div></td>
+		<td align=left ><div class=ostatnif><a href='golfers.php?IDGolfer=615256127'>HOMOLOVÁ  Alžběta</a></div></td>
+		<td align=right ><div class=ostatnif>61</div></td>
+		<td class=ostatnib width=5> </td>
+	</tr>
+</table>
+</div>
+</div>
+
+<div class=zelenypanel style="float:left;width:280px;">
+<h2>Výkon Roku</h2>
+<p>Mimořádný výkon na 18ti jamkovém hřišti v roce.</p>
+<div class=hlavickapanelu>Výkon Roku</div>
+<div class=telopanelu>
+<table border=0 width=276 cellpadding=2 cellspacing=2>
+	<tr>
+		<td class=prvnib align=right width=42><div class=prvnif>1.</div></td>
+		<td align=left ><div class=prvnif><a href='golfers.php?IDGolfer=413132853'>NOVOTNÝ Petr</a></div></td>
+		<td align=right ><div class=prvnif><a href='http://www.cgf.cz/cz/turnaje/turnaje-vyhledavani/turnaj/vysledkova-listina-hrace?id=684109680&categoryId=684109689&golferId=413132853'>-6PP</a></div></td>
+		<td class=prvnib width=5> </td>
+	</tr>
+	<tr>
+		<td class=druhyb align=right width=42><div class=druhyf>2.</div></td>
+		<td align=left ><div class=druhyf><a href='golfers.php?IDGolfer=320511847'>WURST Roman</a></div></td>
+		<td align=right ><div class=druhyf><a href='http://www.cgf.cz/cz/turnaje/turnaje-vyhledavani/turnaj/vysledkova-listina-hrace?id=721067201&categoryId=721067212&golferId=320511847'>2xEagle</a></div></td>
+		<td class=druhyb width=5> </td>
+	</tr>
+	<tr>
+		<td class=tretib align=right width=42><div class=tretif>3.</div></td>
+		<td align=left ><div class=tretif><a href='golfers.php?IDGolfer=36731571'>VJAČKA Jan</a></div></td>
+		<td align=right ><div class=tretif><a href='http://www.cgf.cz/cz/turnaje/turnaje-vyhledavani/turnaj/vysledkova-listina-hrace?id=704228639&categoryId=704229697&golferId=36731571'>2xEagle</a></div></td>
+		<td class=tretib width=5> </td>
+	</tr>
+	<tr>
+		<td class=ostatnib align=right width=42><div class=ostatnif>4.</div></td>
+		<td align=left ><div class=ostatnif><a href='golfers.php?IDGolfer=322010360'>NEDĚLA Jiří</a></div></td>
+		<td align=right ><div class=ostatnif><a href='http://www.cgf.cz/cz/turnaje/turnaje-vyhledavani/turnaj/vysledkova-listina-hrace?id=688946218&categoryId=688946231&golferId=322010360'>Albatros</a></div></td>
+		<td class=ostatnib width=5> </td>
+	</tr>
+	<tr>
+		<td class=ostatnib align=right width=42><div class=ostatnif>5.</div></td>
+		<td align=left ><div class=ostatnif><a href='golfers.php?IDGolfer=73217822'>DĚDEK Petr</a></div></td>
+		<td align=right ><div class=ostatnif><a href='http://www.cgf.cz/cz/turnaje/turnaje-vyhledavani/turnaj/vysledkova-listina-hrace?id=716097727&categoryId=716097740&golferId=73217822'>50STB</a></div></td>
+		<td class=ostatnib width=5> </td>
+	</tr>
+	<tr>
+		<td class=ostatnib align=right width=42><div class=ostatnif>6.</div></td>
+		<td align=left ><div class=ostatnif><a href='golfers.php?IDGolfer=305703592'>KNAPOVSKÝ Radim</a></div></td>
+		<td align=right ><div class=ostatnif><a href='http://www.cgf.cz/cz/turnaje/turnaje-vyhledavani/turnaj/vysledkova-listina-hrace?id=697395504&categoryId=697395514&golferId=305703592'>15xPar</a></div></td>
+		<td class=ostatnib width=5> </td>
+	</tr>
+	<tr>
+		<td class=ostatnib align=right width=42><div class=ostatnif>7.</div></td>
+		<td align=left ><div class=ostatnif><a href='golfers.php?IDGolfer=542683805'>MATOUŠEK Milan</a></div></td>
+		<td align=right ><div class=ostatnif><a href='http://www.cgf.cz/cz/turnaje/turnaje-vyhledavani/turnaj/vysledkova-listina-hrace?id=691610843&categoryId=691614992&golferId=542683805'>Albatros</a></div></td>
+		<td class=ostatnib width=5> </td>
+	</tr>
+	<tr>
+		<td class=ostatnib align=right width=42><div class=ostatnif>8.</div></td>
+		<td align=left ><div class=ostatnif><a href='golfers.php?IDGolfer=535141145'>KRUPIŇSKA Anna</a></div></td>
+		<td align=right ><div class=ostatnif><a href='http://www.cgf.cz/cz/turnaje/turnaje-vyhledavani/turnaj/vysledkova-listina-hrace?id=684453994&categoryId=684454006&golferId=535141145'>12xPar</a></div></td>
+		<td class=ostatnib width=5> </td>
+	</tr>
+	<tr>
+		<td class=ostatnib align=right width=42><div class=ostatnif>9.</div></td>
+		<td align=left ><div class=ostatnif><a href='golfers.php?IDGolfer=501889179'>SLEZÁK Marek</a></div></td>
+		<td align=right ><div class=ostatnif><a href='http://www.cgf.cz/cz/turnaje/turnaje-vyhledavani/turnaj/vysledkova-listina-hrace?id=684640211&categoryId=684640227&golferId=501889179'>15xPar</a></div></td>
+		<td class=ostatnib width=5> </td>
+	</tr>
+	<tr>
+		<td class=ostatnib align=right width=42><div class=ostatnif>10.</div></td>
+		<td align=left ><div class=ostatnif><a href='golfers.php?IDGolfer=537900405'>LEBA Benjamin</a></div></td>
+		<td align=right ><div class=ostatnif><a href='http://www.cgf.cz/cz/turnaje/turnaje-vyhledavani/turnaj/vysledkova-listina-hrace?id=684247253&categoryId=684247263&golferId=537900405'>13xPar</a></div></td>
+		<td class=ostatnib width=5> </td>
+	</tr>
+</table>
+</div>
+</div>
+<div class=reklama1  style="margin-top: 30px;"><script type="text/javascript"><!--
+google_ad_client = "ca-pub-3616470224799939";
+/* Index down */
+google_ad_slot = "5303811063";
+google_ad_width = 250;
+google_ad_height = 250;
+//-->
+</script>
+<script type="text/javascript"
+src="https://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div>
+<div class=mezera></div>
+
+<div class=pruh>
+<h2>Krutá Jamka Roku</h2>
+<p style="height:auto;">Celkový průměr zahraných úderů nad hráčův osobní PAR na jamkách s PAR3, PAR4 a PAR5, při odehrání v průměru alespoň 108 hráči za 1 měsíc v sezóně.</p>
+
+<div class=zelenypanel style="float:left;width:280px;">
+<div class=hlavickapanelu>Krutá Jamka Roku PAR3</div>
+<div class=telopanelu>
+<td><table border=0 width=276 cellpadding=2 cellspacing=2>
+	<tr>
+		<td class=prvnib align=right width=42><div class=prvniw>1.</div></td>
+		<td align=left ><div class=prvniw>Golf Park Plzeň - Dýšina / Greensgate č.11</div></td>
+		<td align=right ><div class=prvniw>0.84</div></td>
+		<td class=prvnib width=5> </td>
+	</tr>
+	<tr>
+		<td class=druhyb align=right width=42><div class=druhyw>2.</div></td>
+		<td align=left ><div class=druhyw>Beřovice č.2</div></td>
+		<td align=right ><div class=druhyw>0.71</div></td>
+		<td class=druhyb width=5> </td>
+	</tr>
+	<tr>
+		<td class=tretib align=right width=42><div class=tretiw>3.</div></td>
+		<td align=left ><div class=tretiw>Ropice č.17</div></td>
+		<td align=right ><div class=tretiw>0.70</div></td>
+		<td class=tretib width=5> </td>
+	</tr>
+	<tr>
+		<td class=ostatnib align=right width=42><div class=ostatnif>4.</div></td>
+		<td align=left ><div class=ostatnif>Panorama Golf Resort - Kácov č.4</div></td>
+		<td align=right ><div class=ostatnif>0.68</div></td>
+		<td class=ostatnib width=5> </td>
+	</tr>
+	<tr>
+		<td class=ostatnib align=right width=42><div class=ostatnif>5.</div></td>
+		<td align=left ><div class=ostatnif>Austerlitz č.17</div></td>
+		<td align=right ><div class=ostatnif>0.63</div></td>
+		<td class=ostatnib width=5> </td>
+	</tr>
+	<tr>
+		<td class=ostatnib align=right width=42><div class=ostatnif>6.</div></td>
+		<td align=left ><div class=ostatnif>Konopiště č.6</div></td>
+		<td align=right ><div class=ostatnif>0.60</div></td>
+		<td class=ostatnib width=5> </td>
+	</tr>
+	<tr>
+		<td class=ostatnib align=right width=42><div class=ostatnif>7.</div></td>
+		<td align=left ><div class=ostatnif>Písek - Kestřany č.17</div></td>
+		<td align=right ><div class=ostatnif>0.60</div></td>
+		<td class=ostatnib width=5> </td>
+	</tr>
+	<tr>
+		<td class=ostatnib align=right width=42><div class=ostatnif>8.</div></td>
+		<td align=left ><div class=ostatnif>Karlovy Vary č.8</div></td>
+		<td align=right ><div class=ostatnif>0.57</div></td>
+		<td class=ostatnib width=5> </td>
+	</tr>
+	<tr>
+		<td class=ostatnib align=right width=42><div class=ostatnif>9.</div></td>
+		<td align=left ><div class=ostatnif>Beroun č.4</div></td>
+		<td align=right ><div class=ostatnif>0.56</div></td>
+		<td class=ostatnib width=5> </td>
+	</tr>
+	<tr>
+		<td class=ostatnib align=right width=42><div class=ostatnif>10.</div></td>
+		<td align=left ><div class=ostatnif>Liberec č.3</div></td>
+		<td align=right ><div class=ostatnif>0.56</div></td>
+		<td class=ostatnib width=5> </td>
+	</tr>
+</table>
+</div>
+</div>
+<div class=zelenypanel style="float:left;width:20px;">&nbsp;</div>
+<div class=zelenypanel style="float:left;width:280px;">
+<div class=hlavickapanelu>Krutá Jamka Roku PAR4</div>
+<div class=telopanelu>
+<td><table border=0 width=276 cellpadding=2 cellspacing=2>
+	<tr>
+		<td class=prvnib align=right width=42><div class=prvniw>1.</div></td>
+		<td align=left ><div class=prvniw>Alfrédov č.5</div></td>
+		<td align=right ><div class=prvniw>1.34</div></td>
+		<td class=prvnib width=5> </td>
+	</tr>
+	<tr>
+		<td class=druhyb align=right width=42><div class=druhyw>2.</div></td>
+		<td align=left ><div class=druhyw>Bechyně č.4</div></td>
+		<td align=right ><div class=druhyw>1.32</div></td>
+		<td class=druhyb width=5> </td>
+	</tr>
+	<tr>
+		<td class=tretib align=right width=42><div class=tretiw>3.</div></td>
+		<td align=left ><div class=tretiw>Stará Boleslav č.9</div></td>
+		<td align=right ><div class=tretiw>1.10</div></td>
+		<td class=tretib width=5> </td>
+	</tr>
+	<tr>
+		<td class=ostatnib align=right width=42><div class=ostatnif>4.</div></td>
+		<td align=left ><div class=ostatnif>Na Vrších č.1</div></td>
+		<td align=right ><div class=ostatnif>1.01</div></td>
+		<td class=ostatnib width=5> </td>
+	</tr>
+	<tr>
+		<td class=ostatnib align=right width=42><div class=ostatnif>5.</div></td>
+		<td align=left ><div class=ostatnif>Líšnice č.3</div></td>
+		<td align=right ><div class=ostatnif>1.01</div></td>
+		<td class=ostatnib width=5> </td>
+	</tr>
+	<tr>
+		<td class=ostatnib align=right width=42><div class=ostatnif>6.</div></td>
+		<td align=left ><div class=ostatnif>Hradec Králové č.10</div></td>
+		<td align=right ><div class=ostatnif>0.98</div></td>
+		<td class=ostatnib width=5> </td>
+	</tr>
+	<tr>
+		<td class=ostatnib align=right width=42><div class=ostatnif>7.</div></td>
+		<td align=left ><div class=ostatnif>Panorama Golf Resort - Kácov č.14</div></td>
+		<td align=right ><div class=ostatnif>0.97</div></td>
+		<td class=ostatnib width=5> </td>
+	</tr>
+	<tr>
+		<td class=ostatnib align=right width=42><div class=ostatnif>8.</div></td>
+		<td align=left ><div class=ostatnif>Konopiště dEste č.18</div></td>
+		<td align=right ><div class=ostatnif>0.97</div></td>
+		<td class=ostatnib width=5> </td>
+	</tr>
+	<tr>
+		<td class=ostatnib align=right width=42><div class=ostatnif>9.</div></td>
+		<td align=left ><div class=ostatnif>Kotlina č.9</div></td>
+		<td align=right ><div class=ostatnif>0.96</div></td>
+		<td class=ostatnib width=5> </td>
+	</tr>
+	<tr>
+		<td class=ostatnib align=right width=42><div class=ostatnif>10.</div></td>
+		<td align=left ><div class=ostatnif>Ropice č.18</div></td>
+		<td align=right ><div class=ostatnif>0.95</div></td>
+		<td class=ostatnib width=5> </td>
+	</tr>
+</table>
+</div>
+</div>
+<div class=zelenypanel style="float:left;width:20px;">&nbsp;</div>
+<div class=zelenypanel style="float:left;width:280px;">
+<div class=hlavickapanelu>Krutá Jamka Roku PAR5</div>
+<div class=telopanelu>
+<td><table border=0 width=276 cellpadding=2 cellspacing=2>
+	<tr>
+		<td class=prvnib align=right width=42><div class=prvniw>1.</div></td>
+		<td align=left ><div class=prvniw>Alfrédov č.10</div></td>
+		<td align=right ><div class=prvniw>1.18</div></td>
+		<td class=prvnib width=5> </td>
+	</tr>
+	<tr>
+		<td class=druhyb align=right width=42><div class=druhyw>2.</div></td>
+		<td align=left ><div class=druhyw>Slapy č.1</div></td>
+		<td align=right ><div class=druhyw>1.11</div></td>
+		<td class=druhyb width=5> </td>
+	</tr>
+	<tr>
+		<td class=tretib align=right width=42><div class=tretiw>3.</div></td>
+		<td align=left ><div class=tretiw>Konopiště dEste č.7</div></td>
+		<td align=right ><div class=tretiw>1.11</div></td>
+		<td class=tretib width=5> </td>
+	</tr>
+	<tr>
+		<td class=ostatnib align=right width=42><div class=ostatnif>4.</div></td>
+		<td align=left ><div class=ostatnif>Písek - Kestřany č.1</div></td>
+		<td align=right ><div class=ostatnif>1.03</div></td>
+		<td class=ostatnib width=5> </td>
+	</tr>
+	<tr>
+		<td class=ostatnib align=right width=42><div class=ostatnif>5.</div></td>
+		<td align=left ><div class=ostatnif>Golf Resort Lázně Bohdaneč č.11</div></td>
+		<td align=right ><div class=ostatnif>1.01</div></td>
+		<td class=ostatnib width=5> </td>
+	</tr>
+	<tr>
+		<td class=ostatnib align=right width=42><div class=ostatnif>6.</div></td>
+		<td align=left ><div class=ostatnif>Grabštejn č.17</div></td>
+		<td align=right ><div class=ostatnif>0.98</div></td>
+		<td class=ostatnib width=5> </td>
+	</tr>
+	<tr>
+		<td class=ostatnib align=right width=42><div class=ostatnif>7.</div></td>
+		<td align=left ><div class=ostatnif>Karlovy Vary č.11</div></td>
+		<td align=right ><div class=ostatnif>0.95</div></td>
+		<td class=ostatnib width=5> </td>
+	</tr>
+	<tr>
+		<td class=ostatnib align=right width=42><div class=ostatnif>8.</div></td>
+		<td align=left ><div class=ostatnif>Konopiště dEste č.12</div></td>
+		<td align=right ><div class=ostatnif>0.94</div></td>
+		<td class=ostatnib width=5> </td>
+	</tr>
+	<tr>
+		<td class=ostatnib align=right width=42><div class=ostatnif>9.</div></td>
+		<td align=left ><div class=ostatnif>Hodkovičky č.8</div></td>
+		<td align=right ><div class=ostatnif>0.92</div></td>
+		<td class=ostatnib width=5> </td>
+	</tr>
+	<tr>
+		<td class=ostatnib align=right width=42><div class=ostatnif>10.</div></td>
+		<td align=left ><div class=ostatnif>Český Krumlov č.11</div></td>
+		<td align=right ><div class=ostatnif>0.92</div></td>
+		<td class=ostatnib width=5> </td>
+	</tr>
+</table>
+</div>
+</div>
+<div class=mezera></div>
+</div>
+
+<div class=zelenypanel style="float:left;width:280px;">
+<h2>Hriště Roku</h2>
+<p>Největší počet různých golfistů na hřišti za rok.</p>
+<div class=hlavickapanelu>Hriště roku</div>
+<div class=telopanelu>
+<table border=0 width=276 cellpadding=2 cellspacing=2>
+	<tr>
+		<td class=prvnib align=right width=42><div class=prvniw>1.</div></td>
+		<td align=left ><div class=prvniw>Pyšely 2018</div></td>
+		<td align=right ><div class=prvniw>3415</div></td>
+		<td class=prvnib width=5> </td>
+	</tr>
+	<tr>
+		<td class=druhyb align=right width=42><div class=druhyw>2.</div></td>
+		<td align=left ><div class=druhyw>Albatross 2016</div></td>
+		<td align=right ><div class=druhyw>2945</div></td>
+		<td class=druhyb width=5> </td>
+	</tr>
+	<tr>
+		<td class=tretib align=right width=42><div class=tretiw>3.</div></td>
+		<td align=left ><div class=tretiw>Beroun 2009</div></td>
+		<td align=right ><div class=tretiw>2801</div></td>
+		<td class=tretib width=5> </td>
+	</tr>
+	<tr>
+		<td class=ostatnib align=right width=42><div class=ostatnif>4.</div></td>
+		<td align=left ><div class=ostatnif>Mstětice 2019</div></td>
+		<td align=right ><div class=ostatnif>2624</div></td>
+		<td class=ostatnib width=5> </td>
+	</tr>
+	<tr>
+		<td class=ostatnib align=right width=42><div class=ostatnif>5.</div></td>
+		<td align=left ><div class=ostatnif>Dýšina 2019</div></td>
+		<td align=right ><div class=ostatnif>2288</div></td>
+		<td class=ostatnib width=5> </td>
+	</tr>
+	<tr>
+		<td class=ostatnib align=right width=42><div class=ostatnif>6.</div></td>
+		<td align=left ><div class=ostatnif>Ypsilon 2019</div></td>
+		<td align=right ><div class=ostatnif>2138</div></td>
+		<td class=ostatnib width=5> </td>
+	</tr>
+	<tr>
+		<td class=ostatnib align=right width=42><div class=ostatnif>7.</div></td>
+		<td align=left ><div class=ostatnif>River & Meadows</div></td>
+		<td align=right ><div class=ostatnif>2000</div></td>
+		<td class=ostatnib width=5> </td>
+	</tr>
+	<tr>
+		<td class=ostatnib align=right width=42><div class=ostatnif>8.</div></td>
+		<td align=left ><div class=ostatnif>Černý Most 2020</div></td>
+		<td align=right ><div class=ostatnif>1961</div></td>
+		<td class=ostatnib width=5> </td>
+	</tr>
+	<tr>
+		<td class=ostatnib align=right width=42><div class=ostatnif>9.</div></td>
+		<td align=left ><div class=ostatnif>Mladá Boleslav 2014</div></td>
+		<td align=right ><div class=ostatnif>1943</div></td>
+		<td class=ostatnib width=5> </td>
+	</tr>
+	<tr>
+		<td class=ostatnib align=right width=42><div class=ostatnif>10.</div></td>
+		<td align=left ><div class=ostatnif>Old Course 2017</div></td>
+		<td align=right ><div class=ostatnif>1887</div></td>
+		<td class=ostatnib width=5> </td>
+	</tr>
+</table>
+</div>
+</div>
+
+<div class=zelenypanel style="float:left;width:280px;">
+<h2>Bojiště Roku</h2>
+<p>Nejtěžší hřiště s celkovým nejmenším průměrem nahraných Stableford bodů.</p>
+<div class=hlavickapanelu>Bojiště Roku</div>
+<div class=telopanelu>
+<table border=0 width=276 cellpadding=2 cellspacing=2>
+	<tr>
+		<td class=prvnib align=right width=42><div class=prvniw>1.</div></td>
+		<td align=left ><div class=prvniw>River & Forest</div></td>
+		<td align=right ><div class=prvniw>28.64</div></td>
+		<td class=prvnib width=5> </td>
+	</tr>
+	<tr>
+		<td class=druhyb align=right width=42><div class=druhyw>2.</div></td>
+		<td align=left ><div class=druhyw>Casa Serena</div></td>
+		<td align=right ><div class=druhyw>29.34</div></td>
+		<td class=druhyb width=5> </td>
+	</tr>
+	<tr>
+		<td class=tretib align=right width=42><div class=tretiw>3.</div></td>
+		<td align=left ><div class=tretiw>River & Meadows</div></td>
+		<td align=right ><div class=tretiw>29.54</div></td>
+		<td class=tretib width=5> </td>
+	</tr>
+	<tr>
+		<td class=ostatnib align=right width=42><div class=ostatnif>4.</div></td>
+		<td align=left ><div class=ostatnif>Forest & Meadows</div></td>
+		<td align=right ><div class=ostatnif>29.58</div></td>
+		<td class=ostatnib width=5> </td>
+	</tr>
+	<tr>
+		<td class=ostatnib align=right width=42><div class=ostatnif>5.</div></td>
+		<td align=left ><div class=ostatnif>Dýšina 2019</div></td>
+		<td align=right ><div class=ostatnif>29.81</div></td>
+		<td class=ostatnib width=5> </td>
+	</tr>
+	<tr>
+		<td class=ostatnib align=right width=42><div class=ostatnif>6.</div></td>
+		<td align=left ><div class=ostatnif>Český Krumlov 2013</div></td>
+		<td align=right ><div class=ostatnif>29.88</div></td>
+		<td class=ostatnib width=5> </td>
+	</tr>
+	<tr>
+		<td class=ostatnib align=right width=42><div class=ostatnif>7.</div></td>
+		<td align=left ><div class=ostatnif>Cihelny 2017</div></td>
+		<td align=right ><div class=ostatnif>29.97</div></td>
+		<td class=ostatnib width=5> </td>
+	</tr>
+	<tr>
+		<td class=ostatnib align=right width=42><div class=ostatnif>8.</div></td>
+		<td align=left ><div class=ostatnif>Na Vrších 2013</div></td>
+		<td align=right ><div class=ostatnif>30.09</div></td>
+		<td class=ostatnib width=5> </td>
+	</tr>
+	<tr>
+		<td class=ostatnib align=right width=42><div class=ostatnif>9.</div></td>
+		<td align=left ><div class=ostatnif>Mladá Boleslav 2014</div></td>
+		<td align=right ><div class=ostatnif>30.24</div></td>
+		<td class=ostatnib width=5> </td>
+	</tr>
+	<tr>
+		<td class=ostatnib align=right width=42><div class=ostatnif>10.</div></td>
+		<td align=left ><div class=ostatnif>Písek 2012</div></td>
+		<td align=right ><div class=ostatnif>30.26</div></td>
+		<td class=ostatnib width=5> </td>
+	</tr>
+</table>
+</div>
+</div>
+<div class=zelenypanel style="float:left;width:280px;">
+<h2>Resort Roku</h2>
+<p>Nejvíce odehraných turnajových jamek v golfovém resortu.</p>
+<div class=hlavickapanelu>Top Resort Roku</div>
+<div class=telopanelu>
+<table border=0 width=276 cellpadding=2 cellspacing=2>
+	<tr>
+		<td class=prvnib align=right width=42><div class=prvniw>1.</div></td>
+		<td align=left ><div class=prvniw>Panorama Golf Resort - Kácov</div></td>
+		<td align=right ><div class=prvniw>113944</div></td>
+		<td class=prvnib width=5> </td>
+	</tr>
+	<tr>
+		<td class=druhyb align=right width=42><div class=druhyw>2.</div></td>
+		<td align=left ><div class=druhyw>Mstětice</div></td>
+		<td align=right ><div class=druhyw>112995</div></td>
+		<td class=druhyb width=5> </td>
+	</tr>
+	<tr>
+		<td class=tretib align=right width=42><div class=tretiw>3.</div></td>
+		<td align=left ><div class=tretiw>Loreta Golf Pyšely</div></td>
+		<td align=right ><div class=tretiw>105318</div></td>
+		<td class=tretib width=5> </td>
+	</tr>
+	<tr>
+		<td class=ostatnib align=right width=42><div class=ostatnif>4.</div></td>
+		<td align=left ><div class=ostatnif>Slapy</div></td>
+		<td align=right ><div class=ostatnif>102537</div></td>
+		<td class=ostatnib width=5> </td>
+	</tr>
+	<tr>
+		<td class=ostatnib align=right width=42><div class=ostatnif>5.</div></td>
+		<td align=left ><div class=ostatnif>Brno Kaskáda</div></td>
+		<td align=right ><div class=ostatnif>96032</div></td>
+		<td class=ostatnib width=5> </td>
+	</tr>
+	<tr>
+		<td class=ostatnib align=right width=42><div class=ostatnif>6.</div></td>
+		<td align=left ><div class=ostatnif>Karlštejn</div></td>
+		<td align=right ><div class=ostatnif>90372</div></td>
+		<td class=ostatnib width=5> </td>
+	</tr>
+	<tr>
+		<td class=ostatnib align=right width=42><div class=ostatnif>7.</div></td>
+		<td align=left ><div class=ostatnif>Beroun</div></td>
+		<td align=right ><div class=ostatnif>83117</div></td>
+		<td class=ostatnib width=5> </td>
+	</tr>
+	<tr>
+		<td class=ostatnib align=right width=42><div class=ostatnif>8.</div></td>
+		<td align=left ><div class=ostatnif>Albatross</div></td>
+		<td align=right ><div class=ostatnif>78378</div></td>
+		<td class=ostatnib width=5> </td>
+	</tr>
+	<tr>
+		<td class=ostatnib align=right width=42><div class=ostatnif>9.</div></td>
+		<td align=left ><div class=ostatnif>Čeladná</div></td>
+		<td align=right ><div class=ostatnif>69345</div></td>
+		<td class=ostatnib width=5> </td>
+	</tr>
+	<tr>
+		<td class=ostatnib align=right width=42><div class=ostatnif>10.</div></td>
+		<td align=left ><div class=ostatnif>Černý Most - Black Bridge Resort</div></td>
+		<td align=right ><div class=ostatnif>63632</div></td>
+		<td class=ostatnib width=5> </td>
+	</tr>
+</table>
+</div>
+</div>
+<div class=mezera></div>
+
+
+
+
+
+
+
+</div>
+
+</div>
+<div class="kontakt"><div style="text-align:left;float:left;">Poslední aktualizace</div> <a href="mailto:golfparadnik@golfparada.cz">golfparadnik@golfparada.cz</a></div>
+</div>
+</div>
+</div>
+</body>
+</html>
