@@ -19,6 +19,7 @@ function ajax_gp(dotaz) {
           }).responseText
       }
 
+   
 const gp_data = JSON.parse(ajax_gp("y_data.json"));
   document.getElementById('neco').innerHTML(gp_data);
 function drawChart() {
