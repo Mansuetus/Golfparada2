@@ -15,7 +15,8 @@ function ajax_gp(dotaz) {
           async: false
           }).responseText
       }
-var gp_data = ajax_gp("y_data.json");
+
+const gp_data = JSON.parse(ajax_gp("y_data.json"));
   document.getElementById('neco').innerHTML(gp_data);
 function drawChart() {
   
