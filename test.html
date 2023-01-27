@@ -21,7 +21,7 @@ function ajax_gp(dotaz) {
 
 const data = ajax_gp("y_data.json");
 const gp_data = JSON.parse(data);
-  document.getElementById('neco').innerHTML = gp_data;
+  document.getElementById('neco').innerHTML = gp_data.2022.Celkem.cols[0].id;
 function drawChart() {
   
         var data = new google.visualization.DataTable();
